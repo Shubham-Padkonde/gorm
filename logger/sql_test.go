@@ -34,10 +34,12 @@ func format(v []byte, escaper string) string {
 	return escaper + strings.ReplaceAll(string(v), escaper, escaper+escaper) + escaper
 }
 
-type namedFloat32 float32
-type namedFloat64 float64
-type stringerFloat32 float32
-type stringerFloat64 float64
+type (
+	namedFloat32    float32
+	namedFloat64    float64
+	stringerFloat32 float32
+	stringerFloat64 float64
+)
 
 func (stringerFloat32) String() string { return "not a SQL number" }
 func (stringerFloat64) String() string { return "not a SQL number" }
